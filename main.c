@@ -2,10 +2,14 @@
 #include <string.h>
 
 void EquivalentKeypresses(char * strArr[], int arrLength) {
-    int ind;
+    int   biggest_arr;
 
-    ind = 0;
-    while (*strArr[0] != '\0')
+    if (strlen(strArr[0]) >= strlen(strArr[1]))
+        biggest_arr = 0;
+    else
+        biggest_arr = 1;
+
+    while (*strArr[biggest_arr] != '\0')
     {
         if (*strArr[0] == '-')
         {
@@ -17,7 +21,7 @@ void EquivalentKeypresses(char * strArr[], int arrLength) {
             strArr[0] -= 2;
             strArr[1] += 3;
         }
-        if (*strArr[0] != *strArr[1])
+        if (*strArr[0] != ',' && *strArr[1] != ',' && *strArr[0] != *strArr[1])
         {
             printf("false\n");
             return;
